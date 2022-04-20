@@ -1,51 +1,22 @@
-const http = require("http");
-const { readFileSync } = require("fs");
+const express = require('express')
+const app = express();
 
-const homePage = readFileSync("./navbar-app/index.html");
-const homeStyles = readFileSync("./navbar-app/styles.css");
-const homeLogo = readFileSync("./navbar-app/logo.svg");
-const homeLogic = readFileSync("./navbar-app/browser-app.js");
+app.get('/', (req, res) => {
+  console.log('user hit the resource');
+  res.status(200).send('Home page');
+})
 
-const server = http.createServer((req, res) => {
-  const url = req.url;
+app.get('/about', (req, res) => {
+  res.status(200).send('About page');
+})
 
-  // homem page
-  if (url === "/") {
-    res.writeHead(200, { "content-type": "text/html" });
-    res.write(homePage);
-    res.end();
+app.all('*', (req, res) => {
+  res.status(404).send('<h1>resource not found</h1>')
+})
 
-    // about page
-  } else if (url === "/styles.css") {
-    res.writeHead(200, { "content-type": "text/css" });
-    res.write(homeStyles);
-    res.end();
-
-    // style page
-  } else if (url === "/styles.css") {
-    res.writeHead(200, { "content-type": "text/css" });
-    res.write(homeStyles);
-    res.end();
-
-    // image/logo
-  } else if (url === "/logo.svg") {
-    res.writeHead(200, { "content-type": "image/svg+xml" });
-    res.write(homeLogo);
-    res.end();
-
-    // logic
-  } else if (url === "/browser-app.js") {
-    res.writeHead(200, { "content-type": "text/javascript" });
-    res.write(homeLogic);
-    res.end();
-  } // 404 => Not found page
-  else {
-    res.writeHead(404, { "content-type": "text/html" });
-    res.write("<h1>Page not found</h1>");
-    res.end();
-  }
+app.listen(5000, () => {
+  console.log('server is listening on port 5000')
 });
 
-server.listen(5000);
-
-// ako gledas od youtube-a onda nastavljas od 5:51:55 (express basics);
+// 013 App example
+// ako geldas od youtube onda je to na 05:03:10
