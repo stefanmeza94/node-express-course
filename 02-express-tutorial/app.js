@@ -1,22 +1,21 @@
-const express = require('express')
+const express = require("express");
+const path = require("path");
+
 const app = express();
 
-app.get('/', (req, res) => {
-  console.log('user hit the resource');
-  res.status(200).send('Home page');
-})
+// setup static and middleware
+app.use(express.static("./public")); // IN PUBLIC WE PUT FILES THAT IS NOT GOING TO CHANGE
 
-app.get('/about', (req, res) => {
-  res.status(200).send('About page');
-})
+// app.get("/", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
+//   adding to static assets
+//   SSR
+// });
 
-app.all('*', (req, res) => {
-  res.status(404).send('<h1>resource not found</h1>')
-})
-
-app.listen(5000, () => {
-  console.log('server is listening on port 5000')
+app.all("*", (req, res) => {
+  res.status(404).send("resource not found");
 });
 
-// 013 App example
-// ako geldas od youtube onda je to na 05:03:10
+app.listen(5000, () => {
+  console.log("server is listening on port 5000");
+});
