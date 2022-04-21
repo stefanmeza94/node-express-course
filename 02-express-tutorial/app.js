@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 
 // setup static and middleware
-app.use(express.static("./public")); // IN PUBLIC WE PUT FILES THAT IS NOT GOING TO CHANGE
+app.use(express.static("./public")); // u public folder sve sto budemo stavili toce server da ispuruci na localhost:5000, naravno mi ovaj folder ne moramo da nazovemo public to je samo neka konvencija.
 
 // app.get("/", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
