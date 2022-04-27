@@ -1,33 +1,25 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 
-const logger = require('./logger');
-const authorize = require('./authorize');
+let { people } = require('./data');
 
-// app.use([logger, authorize]);
+// static assets
+app.use(express.static('./methods-public'));
 
-app.use(morgan('tiny'));
+// parse form data
+app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.send('home page');
+app.get('/api/people', (req, res) => {
+  res.status(200).json({ success: true, data: people });
 });
 
-app.get('/about', (req, res) => {
-  res.send('about page');
-});
-
-app.get('/api/products', (req, res) => {
-  res.send('products page');
-});
-
-app.get('/api/items', (req, res) => {
-  console.log(req.users);
-  res.send('items page');
+app.post('/login', (req, res) => {
+  res.send('POST');
 });
 
 app.listen(5000, () => {
   console.log('server is listening on port 5000');
 });
 
-// sledeci video 25
+// nastavi od express.urlencoded() ugradjenog middlewarea u express biblioteci
+// na youtube 06:59:25
