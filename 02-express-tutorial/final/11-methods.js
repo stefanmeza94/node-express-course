@@ -88,3 +88,5 @@ app.listen(5000, () => {
 });
 
 // kao sto mozemo da primetimo nas fajl postaje dosta obiman, cak iako nemamo toliko mnogo ruta. Sta je resenje za ovaj problem? Resenje je da koristimo express router, gde mozemo da grupisemo te rute zajedno, a sto se tice njihovih funkcionalnost (funkcionalnosti unutar ruta) njih cemo da setujemo preko odvojednih kontrolera.
+
+// kada smo izvodijili rute u poseban folder routes i u njemu napravili people i auth fajlove sada mozemo da se okrenemo funkcionalnist tih ruta. kao sto mozemo da primetimo nas people.js unutar routes je takodje dosta obiman, ono sto mi mozemo da uradimo jeste da pratimo konvenciju i da napravimo folder controllers u kom ce mo da ispisemo celokupnu funkcionalnost za svaku nasu rutu i posle cemo u routes samo da prosledimo referencu tih funkcija koje smo napisali u controllers.
