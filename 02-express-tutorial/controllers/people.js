@@ -1,5 +1,8 @@
 let { people } = require('../data');
 
+// u ovom fajlu koji se nalazi unutar controllers foldera, konvenctija je da ovde izmestamo funkcionalnost samih ruta, da ne bi gomilali fajlove unutar routes foldera.
+// ukratko u controllers idu sva funkcionalnost ruta!
+
 const getPeople = (req, res) => {
   res.status(200).json({ success: true, data: people });
 };
