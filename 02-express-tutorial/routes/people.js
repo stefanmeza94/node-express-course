@@ -21,7 +21,7 @@ const {
 
 // postoji i drugi nacin da se odrede rute, tj da ih zapisemo u manjem broju linija koda (funkcionalnost ce da bude potpuno identicna). ovo zapravo zavisi od nas sta vise preferiramo to cemo da koristimo.
 // pozvacemo router i nad njim route() metodu u koju cemo da odredimo path a odmah zatim cemo da stavimo koje metode regulisemo (u kojimam prosledjujemo nase funkcije iz kontrollera).
-// posto vidimo gore da je ista ruta potupno i za get i za post metodu ono sto mozemo da uradimo ovde jeste da povezemo te dve metode jednu za drugom i da im prosledimo naravno funkcije iz kontrolera koje su za njih.
+// posto vidimo gore da je ista ruta potupno i za get i za post metodu ono sto mozemo da uradimo ovde jeste da povezemo te dve metode jednu za drugom i da im prosledimo naravno funkcije iz kontrolera koje su za njih. isto to radimo i za update i delete route (ruta im je ista);
 router.route('/').get(getPeople).post(createPerson);
 router.route('/postman').post(createPersonPostman);
 router.route('/:id').put(updatePerson).delete(deletePerson);
