@@ -1,19 +1,21 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const tasks = require('./routes/tasks');
-const connectDB = require('./db/connect');
+const tasks = require("./routes/tasks");
+const connectDB = require("./db/connect");
 
 // dotenv je zapravo paket koji smo instalirali, on ce da se postara za to da se ucitaju environment varijable iz .env fajla.
-require('dotenv').config();
+// da bi zapravo pristupili tim vajlovima iz .env fajla moramo da koristimo paket po imenu dotenv!
+// stvarima iz varijabalnog okruzenja (.env) pristupamo sa process.env<IME KOJE SMO ODREDILI U .env FAJLU>
+require("dotenv").config();
 
 // parsing json
 app.use(express.json());
 
-app.get('/hello', (req, res) => {
-  res.send('task manager app');
+app.get("/hello", (req, res) => {
+  res.send("task manager app");
 });
 
-app.use('/api/v1/tasks', tasks);
+app.use("/api/v1/tasks", tasks);
 
 const port = 3000;
 
@@ -31,3 +33,5 @@ const start = async () => {
 };
 
 start();
+
+// nastavi od youtube na 01:38:26
