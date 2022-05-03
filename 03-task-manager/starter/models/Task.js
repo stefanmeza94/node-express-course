@@ -18,6 +18,6 @@ const TaskSchema = new mongoose.Schema({
 });
 
 // sada kada smo setovali skimu za taskove, odnosno sada kada imamo strukturu za nase podatke o taskovima, moramo da setujemo model. Na model mozemo da gledamo kao na reprezentaciju kolekcije (koje mozemo da vidimo na mongoo atlas (za sada smo napravili samo Products))
-// mongoose model je zapravo wrapper za schema-u, ako schema-a definise stkrukturu za dokument kao sto je tip, validacija, mongoose model obezbedjuje interfejs baze podataka. Koriscenjem tog modela moci cemo da kreiramo, menjamo i brisemo nase dokumente sa lakocom.
+// mongoose.model() je zapravo wrapper za schema-u, ako schema-a definise stkrukturu za dokument kao sto je tip, validacija, mongoose model obezbedjuje interfejs baze podataka. Koriscenjem tog modela moci cemo da kreiramo, menjamo i brisemo nase dokumente sa lakocom.
 
 module.exports = mongoose.model("Task", TaskSchema);
