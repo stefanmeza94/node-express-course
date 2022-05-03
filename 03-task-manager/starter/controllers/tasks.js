@@ -3,6 +3,11 @@ const Task = require("../models/Task");
 const getAllTasks = async (req, res) => {
   try {
     const tasks = await Task.find({});
+    // trebalo bi da budemo svesni da mozemo da saljemo bilo sta u json() -u.
+    // res.status(200).json({ tasks, amount: tasks.length });
+    // res
+    //   .status(200)
+    //   .json({ status: "success", data: { taks, nbHits: tasks.length } });
     res.status(200).json({ tasks });
   } catch (err) {
     res.status(500).json({ msg: err });
