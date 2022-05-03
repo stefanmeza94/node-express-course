@@ -8,12 +8,15 @@ const connectDB = require("./db/connect");
 // stvarima iz varijabalnog okruzenja (.env) pristupamo sa process.env<IME KOJE SMO ODREDILI U .env FAJLU>
 require("dotenv").config();
 
+const notFound = require("./middleware/not-found");
+
 // middleware
 app.use(express.static("./public"));
 app.use(express.json());
 
 // routes
 app.use("/api/v1/tasks", tasks);
+app.use(notFound);
 
 const port = 3000;
 
