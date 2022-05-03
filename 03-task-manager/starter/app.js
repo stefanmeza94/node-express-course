@@ -33,5 +33,3 @@ const start = async () => {
 };
 
 start();
-
-// nastavi od youtube na 01:38:26
